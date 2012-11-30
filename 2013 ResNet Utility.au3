@@ -22,11 +22,18 @@
 local $ProgramTitle = "ResNet Utility"
 local $Version = "0.3.1" ; Current version of the software
 local $ReleaseDate = "2012.11.2"
+<<<<<<< HEAD
 local $HelpFile = "README.txt"
 local $lblArray[12] ;Used to set color for data labels in a loop.
 
 ; Creates GUI, sets name in title bar and icon.
 GUICreate("ResNet Utility " & $Version, 710, 555) ;Created the GUI form and the size
+=======
+local $lblArray[12] ;Used to set color for data labels in a loop.
+
+; Creates GUI, sets name in title bar and icon.
+GUICreate("ResNet Utility " & $Version, 710, 255) ;Created the GUI form and the size
+>>>>>>> Merge Changes
 GUISetIcon("resnet.ico", 0) ;Sets the icon for the window title bar (Should be in the same directory as this file, with this name!)
 local $objWMI = ObjGet("winmgmts:\\localhost\root\CIMV2") ;Create connection to WMI
 
