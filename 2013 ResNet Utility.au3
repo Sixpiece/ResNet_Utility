@@ -10,6 +10,10 @@
 ;           3. When adding variables, it must start with $ symbol and use capital letters for the first letter of each word in the name
 ;              Examples:    $ThisIsAVariable $MACAddressVariable, etc
 
+<<<<<<< HEAD
+=======
+#include <EditConstants.au3> ;For the Tech Notes Box
+>>>>>>> Test
 #include <GuiConstantsEx.au3> ; This file is provided after installing Autoit, and provides the ability to use GUI environment.
 #include <Functions\CMDFunc.au3> ;One of my files for common used funtions using command line
 #include <Functions\SMARTFunc.au3> ; A function for getting smart data, not my own code
@@ -21,11 +25,26 @@
 local $ProgramTitle = "ResNet Utility"
 local $Version = "0.3.1" ; Current version of the software
 local $ReleaseDate = "2012.11.2"
+<<<<<<< HEAD
 local $HelpFile = "README.txt"
 local $lblArray[12] ;Used to set color for data labels in a loop.
 
 ; Creates GUI, sets name in title bar and icon.
 GUICreate("ResNet Utility " & $Version, 710, 255) ;Created the GUI form and the size
+=======
+<<<<<<< HEAD
+local $HelpFile = "README.txt"
+local $lblArray[12] ;Used to set color for data labels in a loop.
+
+; Creates GUI, sets name in title bar and icon.
+GUICreate("ResNet Utility " & $Version, 710, 555) ;Created the GUI form and the size
+=======
+local $lblArray[12] ;Used to set color for data labels in a loop.
+
+; Creates GUI, sets name in title bar and icon.
+GUICreate("ResNet Utility " & $Version, 710, 255) ;Created the GUI form and the size
+>>>>>>> Merge Changes
+>>>>>>> Test
 GUISetIcon("resnet.ico", 0) ;Sets the icon for the window title bar (Should be in the same directory as this file, with this name!)
 local $objWMI = ObjGet("winmgmts:\\localhost\root\CIMV2") ;Create connection to WMI
 
@@ -49,9 +68,19 @@ $mnuToolsMenu    = GUICtrlCreateMenu("&Tools") ;Tools menu
 $mnuPreferences  = GUICtrlCreateMenuItem("&Preferences",$mnuToolsMenu) ;Opens the preferences window
 ;$mnuRestart      = GUICtrlCreateMenuItem("Save and Restart",$mnuToolsMenu) ;Saves form and Restart PC
 
+<<<<<<< HEAD
 $mnuHelpMenu     = GUICtrlCreateMenu("?") ;Help Menu
 $mnuAbout        = GUICtrlCreateMenuItem("About",$mnuHelpMenu) ;Opens about window showing version information
 $mnuHelp         = GUICtrlCreateMenuItem("Help",$mnuHelpMenu) ;Opens help file for assistance using the program
+=======
+$mnuHelpMenu     = GUICtrlCreateMenu("Help") ;Help Menu  //switched the "?" to "Help" testing git hub tracker and just getting started / ABV 
+$mnuAbout        = GUICtrlCreateMenuItem("About",$mnuHelpMenu) ;Opens about window showing version information
+$mnuHelp         = GUICtrlCreateMenuItem("Help",$mnuHelpMenu) ;Opens help file for assistance using the program
+
+;Creating Tech Notes Area
+$Edit1 = GUICtrlCreateEdit("", 6, 210, 695, 275)
+GUICtrlSetData(-1, "Tech Notes")
+>>>>>>> Test
 
 ; Creates Tabs
 GUICtrlCreateTab(5, 5, 700, 190) ; Creates tab group
@@ -130,6 +159,7 @@ GUICtrlCreateTabItem("Repair")
 	local $btnFileAssociations = GUICtrlCreateButton("Fix File Associations",220,122,130) ; Runs various commands to repair file associations in the registry
 	local $btnSMARTData = GUICtrlCreateButton("Hard Drive Test",353,58,130) ; button to display SMART data for HDD troubleshooting
 ;GUICtrlCreateTabItem("Known Fixes") ; Nothing currently under this tab [to be implemented later]
+<<<<<<< HEAD
 GUICtrlCreateTabItem("") ; A blank tab item indicates the end of the tab group
 
 ; Creates button row at bottom of window
@@ -137,10 +167,42 @@ local $btnMAC = GUICtrlCreateButton("Manual MAC Address",5,200,120,30) ;Button t
 local $btnWorkgroup = GUICtrlCreateButton("Change Workgroup",130,200,110,30) ;Button to open advanced computer settings, clicks change so you can manually change workgroup settings
 local $btnAddRemovePrograms = GUICtrlCreateButton("Programs and Features",245,200,130,30) ;Opens Programs and Features to manually uninstall programs
 
+=======
+
+GUICtrlCreateTabItem("Ticket") ; Creating Ticket Tab
+	;Display first column (LN, Hall, EKU Eail)
+	GUICtrlCreateLabel("Last Name:",12,50) ;12 is pixels from left, 50, & 
+	GUICtrlCreateLabel("Hall:",12,85) ;100,& ^ //these are all 35pixels apart in height
+	GUICtrlCreateLabel("EKU Email:",12,120) ;150 are the height^
+	
+	;Display second column (FN, Phone)
+	GUICtrlCreateLabel("First Name:",222,50) ;First Name
+	GUICtrlCreateLabel("Phone:",222,85) ; Phone Number
+	
+	;Display Third column (EKU ID, Phone; Other)
+	GUICtrlCreateLabel("EKU ID:",442,50) ;EKU ID
+	GUICtrlCreateLabel("Phone Other:",442,85) ; Phone Number
+
+GUICtrlCreateTabItem("") ; A blank tab item indicates the end of the tab group
+
+; Creates button row at bottom of window
+local $btnMAC = GUICtrlCreateButton("Manual MAC Address",5,500,120,30) ;Button to open cmd prompt, type ipconfig/all, and let you manually check network settings
+local $btnWorkgroup = GUICtrlCreateButton("Change Workgroup",130,500,110,30) ;Button to open advanced computer settings, clicks change so you can manually change workgroup settings
+local $btnAddRemovePrograms = GUICtrlCreateButton("Programs and Features",245,500,130,30) ;Opens Programs and Features to manually uninstall programs
+local $btnSave = GUICtrlCreateButton("Save",515,500,50,30) ;Button to eventually save progress No action in While loop blow as well as no function in CMDFunc
+local $btnExport = GUICtrlCreateButton("Export",570,500,65,30) ;Button for Exporting No action or fucntion yet
+local $btnUpload = GUICtrlCreateButton("Upload",640,500,65,30) ;Button for Uploading Ticket No action or function yet
+>>>>>>> Test
 GUISetState(@SW_SHOW) ;Command to actually display the GUI
  
 While 1
 	Switch GUIGetMsg()
+<<<<<<< HEAD
+=======
+		Case $GUI_EVENT_CLOSE
+			Exit
+		;Case $Edit1	
+>>>>>>> Test
 		Case $GUI_EVENT_CLOSE ;Closes window if program is given close signal
 			Exit ;This Exit command is what actually makes the program exit.
 		Case $mnuExitProgram
