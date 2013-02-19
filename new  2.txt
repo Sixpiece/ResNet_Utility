@@ -17,3 +17,5 @@ While 1
 		Case $Edit1
 	EndSwitch
 WEnd
+
+Bla
